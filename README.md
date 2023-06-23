@@ -38,7 +38,7 @@ Follow these steps to set up the Gram Drop application:
 
 This project utilizes the [instabot](https://pypi.org/project/instabot/) library, which provides the Instagram upload functionality. I extend my gratitude to the instabot community for their contribution.
 
-Happy uploading!
+Happy uploading! (if it works)
 
 **Note**: It is recommended to use GramDrop responsibly and in compliance with Instagram's terms of service. 
 

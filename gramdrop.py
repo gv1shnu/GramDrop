@@ -90,8 +90,8 @@ def prepare_and_fix_photo(photo):
 def tojpg(filepath):
     """Convert images in the specified folder to .jpg format"""
 
-    exts = ['.jpeg', '.png']
-    for ext in exts:
+    extensions = ['.jpeg', '.png']
+    for ext in extensions:
         files = glob.glob(filepath + '\*' + ext)
         # Rename
         for file in files:
@@ -120,6 +120,34 @@ def upload(img, caption):
         print("Failed to upload {}\n".format(img))
 
 
+def main():
+    print("Trying to login...")
+    try:
+        bot.login(username=username, password=password)
+        cprint("Login successful.")
+    except KeyError:
+        cprint("Incorrect credentials")
+        exit(1)
+
+    start_time = time.time()
+    cprint("Converting all images in the folder to .jpg extension.")
+    tojpg(path)
+    cprint("All images converted to JPG format.")
+
+    img_files = glob.glob(path + '\*.jpg')
+    cprint("Uploading {} JPG files".format(len(img_files)))
+
+    for i, link in enumerate(img_files):
+        upload(str(link), "Uploaded by Python")
+        cprint("{}/{}".format(i + 1, len(img_files)))
+
+    last_time = time.time()
+    cprint("Time elapsed: {} minutes".format(round((last_time - start_time) / 60, 1)))
+
+    remove_config()
+    cprint("Check your IG")
+
+
 if __name__ == '__main__':
     init()
     print("Colorama initiated")
@@ -128,33 +156,10 @@ if __name__ == '__main__':
     print("Existing config cleared")
 
     path = input("Enter images folder path: ")
-    user = input("Enter instagram username: ")
-    pas = input("Enter instagram password: ")
+    username = input("Enter instagram username: ")
+    password = input("Enter instagram password: ")
 
     bot = Bot()
     print("Bot initiated")
-    print("Trying to login...")
-    try:
-        bot.login(username=user, password=pas)
-        cprint("Login successful.")
-    except KeyError:
-        cprint("Incorrect credentials")
-        exit(1)
 
-    start_time = time.time()
-    print("Converting all images in the folder to .jpg extension.")
-    tojpg(path)
-    cprint("All images converted to jpg format.")
-
-    img_files = glob.glob(path + '\*.jpg')
-    threads = []
-    cprint("Uploading {} jpg files".format(len(img_files)))
-    for i, link in enumerate(img_files):
-        upload(str(link), "Uploaded by Python")
-        cprint("{} / {}\n".format(i + 1, len(threads)))
-
-    last_time = time.time()
-    cprint("Time elapsed: {} minutes".format(round((last_time - start_time) / 60, 1)))
-
-    remove_config()
-    print("Check your IG")
+    main()
