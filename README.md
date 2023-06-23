@@ -1,9 +1,12 @@
 # GramDrop
-GramDrop is a terminal-based uploader for Instagram, built using Python. It allows you to upload images directly to Instagram feed from your local machine. The uploader utilizes the instabot library to handle the upload process.
+GramDrop is a terminal-based uploader for Instagram, built using Python. 
+
+It allows you to upload images directly to Instagram feed from your local machine. 
+The uploader utilizes the instabot library to handle the upload process.
 
 ## Installation
 
-Follow these steps to set up and run the Search Nexus Flask application:
+Follow these steps to set up the Gram Drop application:
 
 1. Clone the repository:
 	
@@ -13,7 +16,7 @@ Follow these steps to set up and run the Search Nexus Flask application:
 	
    		cd GramDrop
 
-3. To run this project, make sure you have Python 3.11 and pip installed on your system. Install the required dependencies:
+3. To run this project, make sure you have Python 3.11 and pip installed on your system. Install the required dependencies using:
 	
 		pip install -r requirements.txt
 
@@ -33,11 +36,11 @@ Follow these steps to set up and run the Search Nexus Flask application:
 
 ## Acknowledgments 
 
-This project utilizes the [instabot](https://pypi.org/project/instabot/) library, which provides the Instagram upload functionality. We extend our gratitude to the instabot community for their contribution.
+This project utilizes the [instabot](https://pypi.org/project/instabot/) library, which provides the Instagram upload functionality. I extend my gratitude to the instabot community for their contribution.
 
 Happy uploading!
 
-**Note**: It is recommended to use GramDrop responsibly and in compliance with Instagram's terms of service. The project developers are not responsible for any misuse or violations.
+**Note**: It is recommended to use GramDrop responsibly and in compliance with Instagram's terms of service. 
 
 ## License
 
